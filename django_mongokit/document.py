@@ -20,7 +20,7 @@ class _Meta(object):
                  module_name=None,
                  app_label=None,
                  ):
-        self.model_name = model_name
+        self.object_name = model_name
         self.verbose_name = verbose_name and verbose_name or \
           re.sub('([a-z])([A-Z])', r'\1 \2', model_name)
         self.verbose_name_plural = verbose_name_plural or self.verbose_name + 's'
@@ -32,7 +32,7 @@ class _Meta(object):
         model_names.append((model_name, self.verbose_name))
 
     def __repr__(self):
-        return "<Meta %s %r, %r>" % (self.model_name,
+        return "<Meta %s %r, %r>" % (self.object_name,
                                      self.verbose_name,
                                      self.verbose_name_plural)
 

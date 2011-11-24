@@ -42,7 +42,7 @@ class DocumentTest(unittest.TestCase):
         self.assertEqual(klass._meta.verbose_name, u"Talk")
         self.assertEqual(klass._meta.verbose_name_plural, u"Talks")
         self.assertEqual(klass._meta.app_label, u"__main__") # test runner
-        self.assertEqual(klass._meta.model_name, u"Talk")
+        self.assertEqual(klass._meta.object_name, u"Talk")
 
         self.assertEqual(klass._meta.pk.attname, '_id')
 
@@ -56,21 +56,21 @@ class DocumentTest(unittest.TestCase):
         self.assertTrue(klass._meta)
         self.assertEqual(klass._meta.verbose_name, u"Crazy One")
         self.assertEqual(klass._meta.verbose_name_plural, u"Crazy Ones")
-        self.assertEqual(klass._meta.model_name, u"CrazyOne")
+        self.assertEqual(klass._meta.object_name, u"CrazyOne")
 
     def test_meta_creation_overwriting_verbose_name_and_plural(self):
         klass = CrazyTwo
         self.assertTrue(klass._meta)
         self.assertEqual(klass._meta.verbose_name, u"Crazy Two")
         self.assertEqual(klass._meta.verbose_name_plural, u"Crazies Two")
-        self.assertEqual(klass._meta.model_name, u"CrazyTwo")
+        self.assertEqual(klass._meta.object_name, u"CrazyTwo")
 
     def test_subclassed_document(self):
         klass = LighteningTalk
         self.assertTrue(klass._meta)
         self.assertEqual(klass._meta.verbose_name, u"Lightening Talk")
         self.assertEqual(klass._meta.verbose_name_plural, u"Lightening Talks")
-        self.assertEqual(klass._meta.model_name, u"LighteningTalk")
+        self.assertEqual(klass._meta.object_name, u"LighteningTalk")
 
     def test_pk_shortcut(self):
         # create an instance an expect to get the ID as a string
